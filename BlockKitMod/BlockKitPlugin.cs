@@ -7,21 +7,22 @@ using VRage.Plugins;
 
 namespace BlockKitMod
 {
-    class Plugin : IPlugin
+    class BlockKitPlugin : IPlugin
     {
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Init(object gameInstance)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

@@ -14,6 +14,7 @@ namespace BlockKitMod
     {
         private IMyHudNotification _Notify = null;
         private bool isFirstBlock = true;
+        private BlockKitProgression progression;
 
         public override void Init(MyComponentDefinitionBase definition)
         {
@@ -35,7 +36,6 @@ namespace BlockKitMod
             
             if(grid != null)
                 grid.OnBlockAdded += OnBlockAdded;
-
         }
 
         private void OnBlockAdded(IMySlimBlock block)
@@ -208,6 +208,7 @@ namespace BlockKitMod
             {
                 //ShowOnHud(block.MaxIntegrity.ToString() + player.Identity.DisplayName);
                 block.IncreaseMountLevel(block.MaxIntegrity, player.IdentityId);
+                BlockKitProgression.Progress(block);
                 //ShowOnHud("Block build");
                 return true;
             }
