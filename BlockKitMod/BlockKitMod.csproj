@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="BlockKitAutoWelder.cs" />
     <Compile Include="BlockKitPlugin.cs" />
+    <Compile Include="BlockKitProgression.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="ModInit.cs" />
   </ItemGroup>
