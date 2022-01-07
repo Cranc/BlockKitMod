@@ -3,11 +3,12 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{41CA9140-DD7F-4E63-8233-1F00E9499775}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>BlockKitMod</RootNamespace>
-    <AssemblyName>BlockKitMod</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtendedModApi</RootNamespace>
+    <AssemblyName>ExtendedModApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <LangVersion>6</LangVersion>
     <Deterministic>true</Deterministic>
@@ -21,8 +22,10 @@
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\Release\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockKitAutoWelder.cs" />
-    <Compile Include="Logging.cs" />
-    <Compile Include="ModInit.cs" />
+    <Compile Include="WhitelistExtender.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

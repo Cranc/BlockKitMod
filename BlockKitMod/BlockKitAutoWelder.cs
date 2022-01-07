@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Game.SessionComponents;
+using Sandbox.ModAPI;
 using System.Collections.Generic;
 using VRage.Game;
 using VRage.Game.Components;
@@ -14,7 +15,6 @@ namespace BlockKitMod
     {
         private IMyHudNotification _Notify = null;
         private bool isFirstBlock = true;
-        private BlockKitProgression progression;
 
         public override void Init(MyComponentDefinitionBase definition)
         {
@@ -194,7 +194,7 @@ namespace BlockKitMod
 
         private bool RazeBlock(IMySlimBlock block)
         {
-            var grid = this.Entity as IMyCubeGrid;
+            var grid = Entity as IMyCubeGrid;
             if (grid == null)
                 return false;
 
@@ -208,7 +208,7 @@ namespace BlockKitMod
             {
                 //ShowOnHud(block.MaxIntegrity.ToString() + player.Identity.DisplayName);
                 block.IncreaseMountLevel(block.MaxIntegrity, player.IdentityId);
-                BlockKitProgression.Progress(block);
+                UnlockBlockResearch(block, player);
                 //ShowOnHud("Block build");
                 return true;
             }
@@ -216,6 +216,24 @@ namespace BlockKitMod
             {
                 ShowOnHud("Player build block: null");
                 return false;
+            }
+        }
+
+        private void UnlockBlockResearch(IMySlimBlock block, IMyPlayer player)
+        {
+            long builtBy = block.BuiltBy;
+            MyDefinitionId id = block.BlockDefinition.Id;
+            var faction = MyAPIGateway.Session.Factions.TryGetPlayerFaction(player.IdentityId);
+            if (faction != null)
+            {
+                foreach (var memberId in faction.Members.Keys)
+                {
+                    MySessionComponentResearch.Static.UnlockResearch(memberId, id, builtBy);
+                }
+            }
+            else
+            {
+                MySessionComponentResearch.Static.UnlockResearch(builtBy, id, builtBy);
             }
         }
     }

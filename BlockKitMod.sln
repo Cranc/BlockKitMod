@@ -1,26 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockKitMod", "BlockKitMod\BlockKitMod.csproj", "{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedModApi", "ExtendedModApi\ExtendedModApi.csproj", "{41CA9140-DD7F-4E63-8233-1F00E9499775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
-		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Debug|x64.ActiveCfg = Debug|x64
 		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Debug|x64.Build.0 = Debug|x64
-		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Release|x64.ActiveCfg = Release|x64
 		{3A3E9CDC-464C-498A-950E-C4C2F1163BFB}.Release|x64.Build.0 = Release|x64
+		{41CA9140-DD7F-4E63-8233-1F00E9499775}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{41CA9140-DD7F-4E63-8233-1F00E9499775}.Debug|x64.Build.0 = Debug|Any CPU
+		{41CA9140-DD7F-4E63-8233-1F00E9499775}.Release|x64.ActiveCfg = Release|x64
+		{41CA9140-DD7F-4E63-8233-1F00E9499775}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
