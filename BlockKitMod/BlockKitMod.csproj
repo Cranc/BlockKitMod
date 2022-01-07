@@ -133,9 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockKitAutoWelder.cs" />
+    <Compile Include="BlockKitPlugin.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="ModInit.cs" />
-    <Compile Include="Plugin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
