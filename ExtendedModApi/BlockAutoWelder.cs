@@ -9,9 +9,12 @@ using System;
 using System.IO;
 using System.Reflection;
 using VRage.Game;
+using VRage.Game.ModAPI.Ingame;
 using VRage.Network;
 using VRage.Plugins;
 using VRage.Utils;
+using VRageMath;
+using static Sandbox.Game.Entities.MyCubeGrid;
 
 namespace ExtendedModApi
 {
@@ -68,8 +71,8 @@ namespace ExtendedModApi
 					else
 					{
 						Info($"Successfully autowelded '{block.BlockDefinition.DisplayNameText}' at'{block.Position}'");
-						grid.OnIntegrityChanged(block, true);
-						// TODO: this doesn't update the client, why? What event do we need to send to the client?
+						//grid.OnIntegrityChanged(block, true); works without
+						BuildBlockSuccess(grid, block, player);
 					}
 				}
 				else
@@ -88,6 +91,33 @@ namespace ExtendedModApi
 			{
 				Warn($"Could not find inventory of '{player.DisplayName}'");
 			}
+		}
+
+		private void BuildBlockSuccess(MyCubeGrid grid, MySlimBlock block, MyPlayer player)
+        {
+			MyBlockVisuals visual = new MyBlockVisuals(100, block.SkinSubtypeId, true, true);
+
+			Quaternion quaternion;
+			block.Orientation.GetQuaternion(out quaternion);
+			MyBlockLocation location = new MyBlockLocation(
+				block.BlockDefinition.Id, 
+				block.Min, block.Max, 
+				block.Position, 
+				quaternion, 
+				0, 
+				player.Identity.IdentityId
+			);
+
+			MyMultiplayer.RaiseEvent(
+				grid, 
+				g => g.BuildBlockSucess, 
+				visual, 
+				location, 
+				block.GetObjectBuilder(), 
+				block.GetObjectBuilder().EntityId, 
+				true, player.Identity.IdentityId, 
+				new EndpointId(player.Id.SteamId)
+			);
 		}
 
 		private void Log(MyLogSeverity severity, string message) => Logger.WriteLineToConsole($"[{nameof(BlockAutoWelder)}, {severity}] {message}");
