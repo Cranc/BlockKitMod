@@ -135,7 +135,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WhitelistExtender.cs" />
+    <Compile Include="MyPlayerExtensions.cs" />
+    <Compile Include="MySlimBlockExtensions.cs" />
+    <Compile Include="BlockAutoWelder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
